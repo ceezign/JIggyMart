@@ -1,0 +1,121 @@
+/* ==========================================================================
+   JiggyMart — design tokens & overrides
+   Palette: deep teal + warm amber accent (deliberately not the default
+   Bootstrap blue/indigo look). Overriding Bootstrap 5.3's CSS variables
+   means every default component (buttons, badges, links) picks the new
+   colors up automatically without needing a full Sass recompile.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,600;1,600&display=swap');
+
+:root {
+    --jm-teal-900: #0B3B34;
+    --jm-teal-700: #0F6F5C;
+    --jm-teal-500: #17967D;
+    --jm-teal-100: #E4F3EF;
+    --jm-amber-500: #F4A340;
+    --jm-amber-600: #E08A1E;
+    --jm-coral-500: #FF6B5B;
+    --jm-ink: #16211F;
+    --jm-paper: #FAF8F4;
+
+    --bs-primary: var(--jm-teal-700);
+    --bs-primary-rgb: 15, 111, 92;
+    --bs-link-color: var(--jm-teal-700);
+    --bs-link-color-rgb: 15, 111, 92;
+    --bs-link-hover-color: var(--jm-teal-900);
+    --bs-body-bg: var(--jm-paper);
+    --bs-body-color: var(--jm-ink);
+    --bs-body-font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --bs-border-radius: 0.9rem;
+    --bs-border-radius-sm: 0.6rem;
+    --bs-border-radius-lg: 1.25rem;
+}
+
+body {
+    background:
+        radial-gradient(1200px 480px at 100% -10%, rgba(244, 163, 64, 0.10), transparent),
+        radial-gradient(900px 420px at -10% 0%, rgba(15, 111, 92, 0.08), transparent),
+        var(--jm-paper);
+}
+
+h1, h2, h3, .display-5, .fw-bold.display-5 {
+    font-family: 'Fraunces', 'Plus Jakarta Sans', serif;
+    letter-spacing: -0.02em;
+}
+
+a { text-decoration: none; }
+
+/* ---- Navbar ---- */
+.navbar-jm {
+    background: linear-gradient(120deg, var(--jm-teal-900) 0%, var(--jm-teal-700) 100%);
+    box-shadow: 0 6px 24px rgba(11, 59, 52, 0.18);
+}
+.navbar-jm .navbar-brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+}
+.navbar-jm .brand-dot { color: var(--jm-amber-500); }
+.navbar-jm .nav-link { color: rgba(255,255,255,0.85) !important; font-weight: 500; }
+.navbar-jm .nav-link:hover { color: #fff !important; }
+.navbar-jm .form-control { border-radius: 999px; border: none; }
+.navbar-jm .btn-search { border-radius: 0 999px 999px 0; }
+.badge-pending { background: rgba(244,163,64,0.18); color: #a8620b; }
+.badge-rejected { background: rgba(255,107,91,0.18); color: #b8321f; }
+
+/* ---- Buttons ---- */
+.btn-primary { --bs-btn-bg: var(--jm-teal-700); --bs-btn-border-color: var(--jm-teal-700); --bs-btn-hover-bg: var(--jm-teal-900); --bs-btn-hover-border-color: var(--jm-teal-900); }
+.btn-accent { background: var(--jm-amber-500); border-color: var(--jm-amber-500); color: #2B1B00; font-weight: 600; }
+.btn-accent:hover { background: var(--jm-amber-600); border-color: var(--jm-amber-600); color: #2B1B00; }
+
+/* ---- Hero ---- */
+.hero-jm {
+    background: linear-gradient(135deg, var(--jm-teal-900) 0%, var(--jm-teal-700) 55%, #178273 100%);
+    color: #fff;
+    border-radius: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+.hero-jm::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(600px 260px at 85% 20%, rgba(244,163,64,0.35), transparent);
+}
+.hero-jm > * { position: relative; z-index: 1; }
+
+/* ---- Cards / product cards ---- */
+.card { border: 1px solid rgba(15, 111, 92, 0.08); box-shadow: 0 2px 10px rgba(22, 33, 31, 0.05); }
+.product-card { transition: transform .18s ease, box-shadow .18s ease; position: relative; }
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(15, 111, 92, 0.15); }
+.product-card .product-link { color: inherit; }
+.product-card .product-media { position: relative; display: block; }
+
+.wishlist-heart {
+    position: absolute; top: 10px; right: 10px; z-index: 2;
+    width: 34px; height: 34px; border-radius: 999px; border: none;
+    background: rgba(255,255,255,0.92); display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    font-size: 16px; line-height: 1; cursor: pointer;
+    transition: transform .12s ease;
+}
+.wishlist-heart:hover { transform: scale(1.1); }
+.wishlist-heart.is-active { color: var(--jm-coral-500); }
+.wishlist-heart:not(.is-active) { color: #9CA3AF; }
+
+.category-pill {
+    border-radius: 999px; background: var(--jm-teal-100); color: var(--jm-teal-900);
+    font-weight: 600; font-size: 0.78rem; padding: 0.25rem 0.65rem; display: inline-block;
+}
+
+.price-tag { color: var(--jm-teal-900); font-weight: 700; }
+.price-strike { color: #9CA3AF; text-decoration: line-through; }
+.price-discount { color: var(--jm-coral-500); font-weight: 700; }
+
+.rating-stars { color: var(--jm-amber-500); }
+
+footer.footer-jm {
+    background: var(--jm-teal-900);
+    color: rgba(255,255,255,0.65);
+}
