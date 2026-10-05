@@ -16,6 +16,25 @@ return [
             'journal_mode' => null,
             'synchronous' => null,
         ],
+
+        // Used in production (Render + Neon). Neon gives you a single
+        // connection string — set DATABASE_URL to it and leave the
+        // individual DB_HOST/DB_PORT/etc. vars unset; Laravel parses the
+        // URL automatically. Neon requires SSL, hence 'sslmode' => 'require'.
+        'pgsql' => [
+            'driver' => 'pgsql',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'jiggymart'),
+            'username' => env('DB_USERNAME', 'postgres'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'search_path' => 'public',
+            'sslmode' => 'require',
+        ],
     ],
 
     'migrations' => [

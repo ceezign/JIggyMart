@@ -1,0 +1,14 @@
+vendor
+node_modules
+.env
+.env.backup
+.git
+.gitignore
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/app/public/*
+database/database.sqlite
+tests
+.phpunit.cache
