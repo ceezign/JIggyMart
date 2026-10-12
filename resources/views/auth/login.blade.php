@@ -27,9 +27,9 @@
                 <a href="{{ route('password.request') }}">Forgot password?</a>
                 <a href="{{ route('register') }}">Create an account</a>
             </div>
-            <div class="alert alert-secondary small mt-3 mb-0">
+            <!-- <div class="alert alert-secondary small mt-3 mb-0">
                 Demo accounts: <br>admin@jiggymart.test / seller@jiggymart.test / customer@jiggymart.test <br>Password: <code>password</code>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
