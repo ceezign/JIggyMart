@@ -118,16 +118,6 @@ Visit **http://127.0.0.1:8000**
 
 ---
 
-## 🔑 Demo Accounts
-
-| Role | Email | Password |
-|---|---|---|
-| Admin | `admin@jiggymart.test` | `password` |
-| Seller (pre-approved) | `seller@jiggymart.test` | `password` |
-| Customer | `customer@jiggymart.test` | `password` |
-
----
-
 ## 🛒 How the Core Flow Works
 
 **Becoming a seller** — Any customer can apply from the "Sell on JiggyMart" link. This doesn't create a new account; it adds a seller role on top of their existing one, with status `pending`. An admin then approves or rejects the application from the admin dashboard. Once approved, that same account gets full access to the Seller Hub — while still being able to shop as a customer, since the two roles aren't mutually exclusive.
