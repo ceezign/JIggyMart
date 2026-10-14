@@ -118,18 +118,7 @@ Visit **http://127.0.0.1:8000**
 
 ---
 
-## 🛒 How the Core Flow Works
-
-**Becoming a seller** — Any customer can apply from the "Sell on JiggyMart" link. This doesn't create a new account; it adds a seller role on top of their existing one, with status `pending`. An admin then approves or rejects the application from the admin dashboard. Once approved, that same account gets full access to the Seller Hub — while still being able to shop as a customer, since the two roles aren't mutually exclusive.
-
-**Checkout** — When an order is placed, JiggyMart re-checks stock and re-prices every item against the live database before charging anything, all inside a single database transaction. If payment fails after stock was reserved, that stock is automatically released and the order is cancelled — nothing is ever left in a half-completed state.
-
-**Payments** — By default, checkout runs through a mock gateway that auto-approves every charge, so you can test the full purchase flow without any payment provider setup. To go live, add real Paystack keys to `.env`:
 ```
-PAYMENT_GATEWAY_KEY=pk_...
-PAYMENT_GATEWAY_SECRET=sk_...
-```
-No code changes needed — the switch is automatic.
 
 ---
 
